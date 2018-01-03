@@ -1,0 +1,16 @@
+NAME: Chungchhay Kuoch
+EMAIL: chungchhay@ucla.edu
+ID: 004843308
+
+lab3a.c is a source file for the program that reads the file system image and 
+generates into superblock, group, bfree, ifree, inode, dirent, and indirect. 
+
+ext2_fs.h is a header file that is provided for the EXT2 image structures.  
+
+README is a file that describes other files. 
+
+Makefile:
+	default: runs the C source program into the execute program
+	dist: zip the files such as README Makefile lab3a.c ext2_fs.h
+	clean: remove zip file that is created by dist
+
