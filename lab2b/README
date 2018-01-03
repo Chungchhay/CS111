@@ -1,0 +1,67 @@
+NAME: Chungchhay Kuoch
+EMAIL: chungchhay@ucla.edu
+ID: 004 843 308
+
+2.3.1 
+I believe most of the cycles are spent on the operations for the list when having 1 or 2-thread list tests since having few threads will not try to acquire the lock at the same time. 
+The most expensive parts of the code when having few threads are the operations itself. 
+When having high-thread spin-lock, I believe CPU cycles are spent on the spinning because threads are all spinning except the one in the critical section. They have to wait(spin) for the one in critical to finish and unlock it. 
+When having high-thread mutex tests, I believe CPU cycles are spent on the context switch since threads have to give up its CPU and put itself to sleep except the one in the critical and they have to call system call in order to put themselves into sleeps. Therefore, they have to do a lot of context switches to kernel mode. 
+
+2.3.2. 
+The place where most of the cycles are spent when dealing with a large number of threads with spin-lock version is the spin lock function because again all threads keep wasting CPU cycles by spinning and waiting for the one in the critical section to unlock and let another threads come in. 
+
+It is very expensive because again we only let one thread goes into the critical section at a time. Therefore, it cause overhead. Think about if we have 100 threads, the first one goes into the critical section while 99 threads are spinning. It will take forever for the 100th thread one to go into the critical section. 
+
+2.3.3 
+* the average lock-wait time rise so dramatically with the number of contending threads
+because more threads meaning more threads have to wait for acquiring the lock. Threads are all put themselves to sleep except the one in the critical section. When the one in the critical section finishes, it will wake one up in the order of the queue to acquire the lock.
+ 
+*  the completion time per operation rise (less dramatically) with the number of contending threads
+because completion time does not count the time that threads are spending. Therefore, the completion time operation rise less dramatically with the number of contending threads since most of the times are spending the threads. 
+Since threads are spending a lot of time and wait time includes the time that threads are spending, and the run time. Therefore, waiting time tend to be higher than completion time which does not count for threads spending times. 
+
+2.3.4 
+Explain the change in performance of the synchronized methods as a function of the number of lists.
+The more sublists, the smaller length for each list. Therefore, the contention of the lock for a list is decreasing.
+
+Should the throughput continue increasing as the number of lists is further increased? If not, explain why not.
+The number of throughput depends on the CPU, number of threads, and iterations. If we have more iterations and more sublists, 
+the throughput will increase. If we have so many sublists and each one will be short so there is no point of creating
+more sublists. Therefore, the throughput will not be increasing. 
+
+It seems reasonable to suggest the throughput of an N-way partitioned list should be equivalent to the throughput of a single list with fewer (1/N) threads. Does this appear to be true in the above curves? If not, explain why not.
+From the above curves, it seems not to be true since throughput depends on number of threads to complete and how much time it 
+spends in the critical section. Also, partition a list also shortens the lists and reduce the time of critical section because 
+of smaller lenghth. Thus the contention might be decreased when partition a list. 
+
+Files:
+SortedList.h is a header file describing the interfaces that have to build for link list and its implementations are in SortedList.c 
+
+SortedList.c is a source file that implement the interaces that have to build for link list. It includes insert, lookup, getLength, and
+delete the element(s).
+
+lab2_list.c is a source file and main file that run single and multiple threads to update a share lists. We use multiple 
+lock methods such as mutex, spinlock. We also measured the time when we created thread(s), insert link list, 
+get the length, lookup, and delete the elements, and wait for those threads to join back.
+
+lab2_list.csv is a file that contains all the results for lab2_list.c's test.
+
+Makefile is a file that build the programs, test the programs, create graphs for the program, clean whatever files that do not have
+to be submitted on CCLE, and dist option is for zip all the neccessary files into a single zipped file .tar.gz and profile that
+generates an execution profiling report.
+lab2_list.csv is a file that contains all the results for lab2_list.c's test.
+
+profile.out is a file that execute profiling report showing where time was spent in the un-partitioned spin lock implementation.
+
+lab2b_1.png is an image that contains throughput vs number of threads for mutex and spin-lock synchronized list operations.
+lab2b_2.png is an image that contains mean time per mutex wait and mean time per operation for mutex-synchronized list operations.
+	    The average mutex wait is really high because I lock the whole things such as, insert, lookup and delete, 
+	    and get a length of the list functions 
+lab2b_3.png is an image that contains successful iterations vs threads for each synchronization method.
+lab2b_4.png is an image that contains throughput vs number of threads for mutex synchronized partitioned lists.
+lab2b_5.png is an image that contains throughput vs number of threads for spin-lock-synchronized partitioned lists.
+
+sample.sh contains test cases.
+
+README is a file that contains descriptions about other files for this project. And anwer the questions in the spec.

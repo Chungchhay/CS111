@@ -1,0 +1,44 @@
+Total: 57 samples
+      52  91.2%  91.2%       52  91.2% acquire_lock
+       4   7.0%  98.2%        4   7.0% __strcmp_sse42
+       1   1.8% 100.0%        4   7.0% SortedList_lookup
+       0   0.0% 100.0%        1   1.8% SortedList_insert
+       0   0.0% 100.0%       57 100.0% __clone
+       0   0.0% 100.0%       57 100.0% executionFunc
+       0   0.0% 100.0%        1   1.8% insertList
+       0   0.0% 100.0%        4   7.0% lookUpNDeleteElement
+       0   0.0% 100.0%       57 100.0% start_thread
+ROUTINE ====================== acquire_lock in /u/cs/ugrad/chungchh/CS111/lab2b/lab2_list.c
+    52     52 Total samples (flat / cumulative)
+     .      .  258:     exit(exitStatus);
+     .      .  259: }
+     .      .  260: 
+     .      .  261: //Lock for spin lock
+     .      .  262: void acquire_lock(int *spinLock)
+---
+     .      .  263: {
+    52     52  264:   while(__sync_lock_test_and_set(spinLock, 1));
+     .      .  265: }
+---
+     .      .  266: 
+     .      .  267: //unlock for spin lock
+     .      .  268: void release_spinlock(int *spinLock)
+     .      .  269: {
+     .      .  270:   __sync_lock_release(spinLock);
+ROUTINE ====================== acquire_lock in /u/cs/ugrad/chungchh/CS111/lab2b/lab2_list.c
+    52     52 Total samples (flat / cumulative)
+     .      .  258:     exit(exitStatus);
+     .      .  259: }
+     .      .  260: 
+     .      .  261: //Lock for spin lock
+     .      .  262: void acquire_lock(int *spinLock)
+---
+     .      .  263: {
+    52     52  264:   while(__sync_lock_test_and_set(spinLock, 1));
+     .      .  265: }
+---
+     .      .  266: 
+     .      .  267: //unlock for spin lock
+     .      .  268: void release_spinlock(int *spinLock)
+     .      .  269: {
+     .      .  270:   __sync_lock_release(spinLock);
