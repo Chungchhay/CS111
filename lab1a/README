@@ -1,0 +1,16 @@
+NAME: Chungchhay Kuoch
+EMAIL: chungchhaykuoch@Yahoo.com
+ID: 004 843 308
+
+README is a file that contains descriptions about other files. 
+
+lab1a.c is a source file that runs in the program. This source file is broken
+up into many functions. And I also commented some of the functions but other
+functions should be obvious for you to understand the meanings of the functions
+by its name. There are also a bunch of global variables as well. A good example
+from my code is shellFlag, when it is 1, I know that it is running with the shell.
+
+Makefile:
+	default is just a standard default to run a C source file
+	clean is used to clean the lab1a file and other files that are created by Makefile
+	dist is used to compressed 3 files such as lab1a.c Makefile README
