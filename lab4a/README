@@ -1,0 +1,21 @@
+NAME: Chungchhay Kuoch
+EMAIL: chungchhaykuoch@yahoo.com
+ID: 004 843 308
+
+Serial Number: BBGW16062296
+WIFI Mac address: 2c:f7:f1:06:50:70
+
+my_beaglebone.png file is just a selfie of myself with the beagle bone kits
+
+connected.png file is to show I have establish a connection between the beagle bone kits and the internet (WIFI)
+
+copy.png file is to show I have copied  a C file successfully from my desktop to my beagle bone kits using my WIFI ip address 
+
+build_run.png file is to show that I have successfully done the compilation and execution
+
+git.png file is to show that I have successfully installed the git and use git to clone a local copy of a repository from my 
+GitHub named example which is an empty file
+
+README is just a file that contains descriptions of each photo, serial number of my beagle bone kits, and WiFi Mac address. 
+Notice that my serial number is the same as my friend’s serial number since my beagle bone is on its way to my house. 
+Therefore, I had to borrow him to work on this lab. 
