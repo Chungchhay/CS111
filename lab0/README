@@ -1,0 +1,28 @@
+NAME: Chungchhay Kuoch
+EMAIL: chungchhay@ucla.edu
+ID: 004843308
+
+lab0.c contains all of my source codes for this lab. The program uses getopt_long to
+create options and check for options to identify if it is input, output, segfault or 
+other options. I created one option for input, another one for output, one for segfault, 
+one for catching segmentation fault. I also created 
+read write function from file descriptor 0 to file descriptor 1 byte by byte by 
+using read and write functions. When getting segmentation fault 's', I handled it
+setting a char * pointer to NULL and then stores through the null pointer. For the 
+default option in the switch statement, I print out "Incorrect arguments, please pass 
+the correct argument" and exit it with a return 1. 
+
+Makefile contains all the test for lab0. For example:
+make default will create an executable file.
+make check will check all the smoke test, and I ran it, I passed all of my make check test
+     Notice that I only check for my input and output arguments since backtrace.png and 
+     breakpoint.png will take care of the other 2 arguments.
+make clean will remove the executable file.
+make dist will create a tar.gz file.
+
+README contains all the information about this lab. 
+
+backtrace.png is just a screenshot for segfault within gdb and show backtrace from the segfault
+
+breakpoint.png is just a screenshot that tells us there is actually a null pointer as being null. 
+It shows a break point at the bad assigment.
