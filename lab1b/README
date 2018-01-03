@@ -1,0 +1,37 @@
+NAME: Chungchhay Kuoch
+EMAIL: chungchhaykuoch@yahoo.com
+ID: 004 843 308
+
+lab1b-client.c: 
+	      	This file contains a C source code that connects to the server by communicating over
+	      the socket through TCP on localhost. 
+	      There are 3 options that support this program such as port option: it is require an argument
+	      and have to use the same port number as the server in order to communicate to each other.
+	      log option: is used to set and receive byte during the communication between the 
+	      client and the server. encrypt option: which encrypt the data before we sent it out
+	      to the server. 
+
+lab1b-server.c:
+		This file contains a C source code for setting up the server for TCP data communication
+		using sock API. This program run on the localhost in order to communicate with the client.
+		This server also forks a child to execute a bash shell like we did in lab1a. This program 
+		is similiar to lab1a except it also has to communicate with the client and use the 
+		encryption key to encrypt the data before sending it over the socket to the client side. 
+		This server supports 2 options: one is port option which I just explained earlier in 
+		lab1b-client.c. And encrypt option which encryption the data with a key before sending
+		it to the client side. 
+
+my.key:
+	This file contains a random key that I assigned that has 16 bytes long key and is used to encryption and decryption.
+	For example, we use that key for encryption data that being sent over the socket, then whoever want to read it has
+	to have the same key in order to decrypt it back to the plain data. 
+
+Makefile:
+	lab1b-server.c is to create an executable file lab1b-server
+	lab1b-client.c is to create an executable file lab1b-client
+	default option is to call lab1b-server and lab1b-client option
+	clean is to delete 2 executable files such as lab1b-server lab1b-client and tar.gz file
+	dist is to create a tar file containing 5 files such as lab1b-client.c lab1b-server.c README my.key Makefile 	
+
+README:
+	Explaination of each of the file
