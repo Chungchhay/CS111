@@ -1,0 +1,16 @@
+#NAME: Chungchhay Kuoch                                                             
+#EMAIL: chungchhaykuoch@yahoo.com                                                   
+#ID: 004 843 308 
+
+README is a file that descripts whatever files that I have to submit on CCLE.
+
+lab4c_tcp.c is a source file that can run with beagle bone and tcp socket to see what the temperature is right now at a certain place. 
+
+lab4c_tls.c is a source file that can run with beagle bone and tcp socket with secure transfer data to see what the temperature is right now at a certain place. 
+
+LOGFILE is just a log file that contain everything output if the server uses log option.
+ 
+Makefile 
+	 default: make the source file into a runnable file
+	 clean: clean the file created by Makefile
+	 dist: create the deliverable tarball
