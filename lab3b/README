@@ -1,0 +1,17 @@
+#NAME: Wing Han So, Chungchhay Kuoch
+#EMAIL: stellawhso@engineering.ucla.edu, chungchhay@ucla.edu
+#ID: 804757943, 004843308
+
+1- lab3b.py
+The python source code for the lab 3b file system consistency analysis
+
+2-Makefile:
+
+dist:
+Generate a tarball, lab3b-804757943.tar.gz
+
+clean:
+Remove all generated files, except for lab3b.py, Makefile, and README.
+
+3-README
+contain descriptions for each files
